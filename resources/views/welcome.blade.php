@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/welcome.css?v=' . now()->format('H.s')) }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css?v=' . now()->format('H.s')) }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v=' . now()->format('H.s')) }}">
 </head>
 
 <body class="antialiased">
@@ -22,7 +22,7 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center">
-                <img src="{{ asset('image/logo-pet.png?v=' . now()->format('H.s')) }}" alt="logo universal pet" style="filter: drop-shadow(5px 5px 15px #fff);width:750px">
+                <x-jet-application-logo />
             </div>
 
             <div class="mt-8 overflow-hidden sm:rounded-lg">

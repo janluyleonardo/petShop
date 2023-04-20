@@ -184,5 +184,12 @@
     "Full Name": "Apellido(s) y nombre(s)",
     "Records in database": "Registros en la base de datos",
     "See": "Ver",
-    "Edit": "Editar"
+    "Edit": "Editar",
+    "ProductCode": "Codigo de producto",
+    "ProductName": "Nombre de producto",
+    "ProductDescription": "Descripcion del producto",
+    "PurchaseDate": "Fecha de compra",
+    "ExpirationDate": "Fecha de vencimiento",
+    "InventoryStock": "Cantidad de producto",
+    "ProductPrice": "Precio del producto"
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProduct;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Inventories.create');
     }
 
     /**
@@ -34,9 +35,9 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProduct $request)
     {
-        //
+        return "entro en store";
     }
 
     /**
@@ -47,7 +48,7 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return "entro en show";
     }
 
     /**
@@ -58,7 +59,7 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "entro en edit";
     }
 
     /**
@@ -81,6 +82,6 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "entro en delete";
     }
 }

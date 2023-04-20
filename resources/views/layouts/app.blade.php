@@ -13,7 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
         @livewireStyles
 
         <!-- Scripts -->
