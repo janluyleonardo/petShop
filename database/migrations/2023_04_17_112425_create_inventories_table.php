@@ -16,12 +16,15 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
             $table->string('ProductCode')->unique();
-            $table->string('ProductName');
-            $table->string('ProductDescription');
-            $table->timestamp('PurchaseDate');
-            $table->timestamp('ExpirationDate');
+            $table->string('ProductName')->unique();
+            $table->timestamp('EntryDate');
+            $table->timestamp('ExpirationDate')->nullable();
+            $table->bigInteger('ProductPurchasePrice');
+            $table->string('ProductCategory');
+            $table->bigInteger('ProductProfit');
             $table->bigInteger('InventoryStock');
             $table->bigInteger('ProductPrice');
+            $table->string('ProductImage')->nullable();
             $table->timestamps();
         });
     }

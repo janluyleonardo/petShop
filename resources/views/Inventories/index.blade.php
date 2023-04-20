@@ -19,7 +19,6 @@
                                             <th scope="col"></th>
                                             <th scope="col">Codigo</th>
                                             <th scope="col">Nombre producto</th>
-                                            <th scope="col">descripcion producto</th>
                                             <th scope="col">Fecha de compra</th>
                                             <th scope="col">Fecha de vencimiento</th>
                                             <th scope="col">Cantidad comprada</th>
@@ -40,8 +39,7 @@
                                                 <th scope="row">{{ $i }}</th>
                                                 <td>{{ $product->ProductCode }}</td>
                                                 <td>{{ $product->ProductName }}</td>
-                                                <td>{{ $product->ProductDescription }}</td>
-                                                <td>{{ $product->PurchaseDate }}</td>
+                                                <td>{{ $product->EntryDate }}</td>
                                                 <td>{{ $product->ExpirationDate }}</td>
                                                 <td>{{ $product->InventoryStock }}</td>
                                                 <td>{{ $product->ProductPrice }}</td>
