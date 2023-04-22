@@ -186,11 +186,15 @@
     "See": "Ver",
     "Add product": "Agregar producto",
     "Edit": "Editar",
-    "ProductCode": "Codigo de producto",
+    "ProductImage": "Imagen de producto",
     "ProductName": "Nombre de producto",
-    "ProductDescription": "Descripcion del producto",
-    "PurchaseDate": "Fecha de compra",
+    "ProductPurchasePrice": "Costo unitario producto",
+    "EntryDate": "Fecha de ingreso",
     "ExpirationDate": "Fecha de vencimiento",
     "InventoryStock": "Cantidad de producto",
-    "ProductPrice": "Precio del producto"
+    "ProductPrice": "Precio del producto",
+    "ProductCategory": "Categoria del producto",
+    "List of inventories": "Lista de productos",
+    "Upload file with product inventory": "Cargar archivo con inventario de productos",
+    "Export Inventory Data": "Exportar datos de inventario"
 }

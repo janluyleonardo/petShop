@@ -14,56 +14,64 @@
                             <form method="post" action="{{route('inventories.store')}}">
                                 @csrf
                                 <div class="form-group row mb-1">
-                                    <label for="ProductCode" class="col-sm-3 col-form-label">{{__('ProductCode')}}</label>
+                                    <label for="InventoryStock" class="col-sm-3 col-form-label">{{__('InventoryStock')}}</label>
                                     <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="ProductCode" name="ProductCode" placeholder="{{__('ProductCode')}}" value="{{ old('ProductCode') }}">
-                                    @error('ProductCode')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                    <input type="number" class="form-control" id="InventoryStock" name="InventoryStock" placeholder="{{__('InventoryStock')}}" value="{{ old('InventoryStock') }}">
+                                    @error('InventoryStock')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-1">
                                     <label for="ProductName" class="col-sm-3 col-form-label">{{__('ProductName')}}</label>
                                     <div class="col-sm-9">
                                     <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="{{__('ProductName')}}" value="{{ old('ProductName') }}">
-                                    @error('ProductName')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                    @error('ProductName')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label for="ProductDescription" class="col-sm-3 col-form-label">{{__('ProductDescription')}}</label>
+                                    <label for="ProductPurchasePrice" class="col-sm-3 col-form-label">{{__('ProductPurchasePrice')}}</label>
                                     <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="ProductDescription" name="ProductDescription" placeholder="{{__('ProductDescription')}}" value="{{ old('ProductDescription') }}">
-                                    @error('ProductDescription')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                    <input type="text" class="form-control" id="ProductPurchasePrice" name="ProductPurchasePrice" placeholder="{{__('ProductPurchasePrice')}}" value="{{ old('ProductPurchasePrice') }}">
+                                    @error('ProductPurchasePrice')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label for="PurchaseDate" class="col-sm-3 col-form-label">{{__('PurchaseDate')}}</label>
+                                    <label for="ProductImage" class="col-sm-3 col-form-label">{{__('ProductImage')}}</label>
                                     <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="PurchaseDate" name="PurchaseDate" placeholder="{{__('PurchaseDate')}}" value="{{ old('PurchaseDate') }}">
-                                    @error('PurchaseDate')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                    <input type="file" class="form-control" id="ProductImage" name="ProductImage" placeholder="{{__('ProductImage')}}" value="{{ old('ProductImage') }}">
+                                    @error('ProductImage')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-1">
+                                    <label for="EntryDate" class="col-sm-3 col-form-label">{{__('EntryDate')}}</label>
+                                    <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="EntryDate" name="EntryDate" placeholder="{{__('EntryDate')}}" value="{{ old('EntryDate') }}">
+                                    @error('EntryDate')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-1">
                                     <label for="ExpirationDate" class="col-sm-3 col-form-label">{{__('ExpirationDate')}}</label>
                                     <div class="col-sm-9">
                                     <input type="date" class="form-control" id="ExpirationDate" name="ExpirationDate" placeholder="{{__('ExpirationDate')}}" value="{{ old('ExpirationDate') }}">
-                                    @error('ExpirationDate')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                    @error('ExpirationDate')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-1">
-                                    <label for="InventoryStock" class="col-sm-3 col-form-label">{{__('InventoryStock')}}</label>
+                                    <label for="ProductCategory" class="col-sm-3 col-form-label">{{__('ProductCategory')}}</label>
                                     <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="InventoryStock" name="InventoryStock" placeholder="{{__('InventoryStock')}}" value="{{ old('InventoryStock') }}">
-                                    @error('InventoryStock')<small><strong>*{{ $message }}</strong></small><br>@enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row mb-1">
-                                    <label for="ProductPrice" class="col-sm-3 col-form-label">{{__('ProductPrice')}}</label>
-                                    <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="ProductPrice" name="ProductPrice" placeholder="{{__('ProductPrice')}}" value="{{ old('ProductPrice') }}">
-                                    @error('ProductPrice')<small><strong>*{{ $message }}</strong></small><br>@enderror
+                                        <select class="form-control" name="ProductCategory" id="Categoria">
+                                            <option value="">{{__('ProductCategory')}}</option>
+                                            <option value="AL">Alimentos</option>
+                                            <option value="AG">Arena de gatos</option>
+                                            <option value="FM">Farmacia</option>
+                                            <option value="PL">Peluqueria</option>
+                                            <option value="AC">Accesorios</option>
+                                            <option value="MB">Mobiliarios</option>
+                                        </select>
+                                    @error('ProductCategory')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-3 mx-auto">
                                     <button type="submit" class="btn btn-success">{{__('Add product')}}</button>
                                     </div>
                                 </div>

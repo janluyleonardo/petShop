@@ -27,4 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/inventories', InventoryController::class);
+    Route::get('export', [InventoryController::class, 'export'])->name('export');
+    Route::post('import', [InventoryController::class, 'import'])->name('import');
 });
