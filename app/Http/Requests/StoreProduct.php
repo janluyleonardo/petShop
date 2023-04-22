@@ -24,39 +24,33 @@ class StoreProduct extends FormRequest
     public function rules()
     {
         return [
-            'ProductCode'=>'required | min:6',
-            'ProductName'=>'required | min:6',
-            'ProductDescription'=>'required | min:6',
-            'PurchaseDate'=>'required | date',
-            'ExpirationDate'=>'required | date',
             'InventoryStock'=>'required | numeric',
-            'ProductPrice'=>'required | numeric',
+            'ProductName'=>'required | min:6',
+            'ProductPurchasePrice'=>'required | numeric',
+            'EntryDate'=>'required | date',
+            'ProductCategory'=>'required | string',
         ];
     }
 
     public function attributes()
     {
         return [
-            'ProductCode' => 'Codigo de producto',
-            'ProductName' => 'Nombre de producto',
-            'ProductDescription' => 'Descripcion del producto',
-            'PurchaseDate' => 'Fecha de compra del producto',
-            'ExpirationDate' => 'Fecha de vencimiento del producto',
             'InventoryStock' => 'Cantidad de producto',
-            'ProductPrice' => 'Cantidad de producto',
+            'ProductName'=>'Nombre de producto',
+            'ProductPurchasePrice'=>'Costo unitario',
+            'EntryDate'=>'Fecha de ingreso',
+            'ProductCategory'=>'Categoria del producto',
         ];
     }
 
     public function messages()
     {
         return [
-            'ProductCode' => 'Debe ingresar un codigo de producto',
-            'ProductName' => 'Debe ingresar un nombre de producto',
-            'ProductDescription' => 'Debe ingresar una descripcion del producto',
-            'PurchaseDate' => 'Debe ingresar una fecha de compra del producto',
-            'ExpirationDate' => 'Debe ingresar una fecha de vencimiento del producto',
-            'InventoryStock' => 'Debe ingresar una cantidad del producto',
-            'ProductPrice' => 'Debe ingresar una cantidad del producto',
+            'InventoryStock' => 'Ingresar la cantidad de producto',
+            'ProductName'=>'Ingresar el nombre del producto',
+            'ProductPurchasePrice'=>'Ingrese el costo unitario del producto',
+            'EntryDate'=>'Ingrese una fecha de ingreso del producto',
+            'ProductCategory'=>'Ingrese una categoria del producto',
         ];
     }
 }

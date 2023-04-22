@@ -16,7 +16,7 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
             $table->string('ProductCode')->unique();
-            $table->string('ProductName')->unique();
+            $table->string('ProductName');
             $table->timestamp('EntryDate');
             $table->timestamp('ExpirationDate')->nullable();
             $table->bigInteger('ProductPurchasePrice');
