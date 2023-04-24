@@ -17,8 +17,8 @@ class CreateInventoriesTable extends Migration
             $table->id();
             $table->string('ProductCode')->unique();
             $table->string('ProductName');
-            $table->timestamp('EntryDate');
-            $table->timestamp('ExpirationDate')->nullable();
+            $table->date('EntryDate');
+            $table->date('ExpirationDate')->nullable();
             $table->bigInteger('ProductPurchasePrice');
             $table->string('ProductCategory');
             $table->bigInteger('ProductProfit');

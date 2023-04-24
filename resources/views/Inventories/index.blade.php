@@ -71,14 +71,11 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content sombra bg-white">
                                                         <div class="modal-header sombra bn-100">
-                                                            <h1 class="modal-title fs-5 mx-auto" id="exampleModalLabel">
-                                                                {{ Str::upper($product->ProductName) }}</h1>
-                                                            <button type="button" class="btn-close sombra"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                          <button type="button" class="btn-close sombra" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body sombra">
-                                                            Esta seguro(a) de eliminar el registro de:
-                                                            <strong>{{ Str::upper($product->ProductName) }}</strong>
+                                                          Esta seguro(a) de eliminar el registro de:<br>
+                                                          <strong>{{ Str::upper($product->ProductName) }}</strong>
                                                         </div>
                                                         <div class="modal-footer bn-100">
                                                             <button type="button" class=" sombra btn btn-warning"
@@ -103,19 +100,21 @@
                     </div>
                     {{ $inventories->links() }}
                 </div>
-                <div class="container mb-1">
+                <div class="container mb-3">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="card bg-light mt-3">
                         <div class="card-header">
                           {{ __('Upload file with product inventory') }}.
+                          <strong>
+                            <a href="{{asset('carga.xlsx')}}">Aca tienes un ejemplo</a>
+                          </strong>
                         </div>
                         <div class="card-body">
                           <div class="col-md-6 mx-auto">
                             <form action="{{route('import')}}" method="POST" enctype="multipart/form-data">
                               @csrf
                               <x-input-file></x-input-file>
-                              {{-- <input type="file" name="importInventory" id="importInventory"> --}}
                               <button class="sombra btn btn-success ml-4" width="50%" type="submit">{{__('Import User Data')}}</button>
                               <a class="sombra btn btn-warning ml-4" width="50%" href="{{route('export')}}">{{__('Export Inventory Data')}}</a>
                             </form>

@@ -11,7 +11,7 @@
                 <div class="container py-2">
                     <div class="row">
                         <div class="col-md-8 mx-auto">
-                            <form method="post" action="{{route('inventories.store')}}">
+                            <form method="post" action="{{route('inventories.store')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row mb-1">
                                     <label for="InventoryStock" class="col-sm-3 col-form-label">{{__('InventoryStock')}}</label>

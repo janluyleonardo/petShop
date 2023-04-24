@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ asset('css/validations.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/inputs.css?v='.now()->format('H.s')) }}">
         @livewireStyles
 
         <!-- Scripts -->

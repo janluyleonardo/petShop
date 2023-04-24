@@ -27,7 +27,6 @@ class InventoriesImport implements ToModel, WithHeadingRow, WithUpserts
           'ProductProfit' => $row['ganancia'],
           'InventoryStock' => $row['cantidad'],
           'ProductPrice' => $row['precio_venta'],
-          'ProductImage' => $row['imagen'],
         ]);
     }
 

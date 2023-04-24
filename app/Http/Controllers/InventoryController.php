@@ -57,6 +57,15 @@ class InventoryController extends Controller
 
         $ProductPrice = $base+$ProductProfit;
         $product = new Inventory();
+
+        if($request->hasfile('ProductImage')){
+          $file = $request->file('ProductImage');
+          $pathUrl = 'images/Products/';
+          $fileName = time()."-".$file->getClientOriginalName();
+          $uploadSuccess = $request->file('ProductImage')->move($pathUrl, $fileName);
+          $product->ProductImage = $uploadSuccess;
+        }
+
         $product->ProductCode = $ProductCode;
         $product->ProductName = $request->ProductName;
         $product->EntryDate = $request->EntryDate;
@@ -67,7 +76,6 @@ class InventoryController extends Controller
         $product->ProductProfit = $ProductProfit;
         $product->InventoryStock = $request->InventoryStock;
         $product->ProductPrice = $ProductPrice;
-        $product->ProductImage = $request->ProductImage;
         try {
             $product->save();
         } catch (\Throwable $th) {
@@ -86,7 +94,8 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        return "entro en show";
+      $product = Inventory::findOrFail($id);
+      return view('Inventories.show',compact('product'));
     }
 
     /**
@@ -97,7 +106,9 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        return "entro en edit";
+      $product = Inventory::findOrFail($id);
+      // return $product;
+      return view('Inventories.edit',compact('product'));
     }
 
     /**
@@ -109,7 +120,35 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Inventory::findOrFail($id);
+        $base = $request->ProductPurchasePrice;
+        $ProductProfit = ($base*30)/100;
+
+        $ProductPrice = $base+$ProductProfit;
+
+        if($request->hasfile('ProductImage')){
+          $file = $request->file('ProductImage');
+          $pathUrl = 'images/Products/';
+          $fileName = time()."-".$file->getClientOriginalName();
+          $uploadSuccess = $request->file('ProductImage')->move($pathUrl, $fileName);
+          $product->ProductImage = $uploadSuccess;
+        }
+
+        $product->ProductName = $request->ProductName;
+        $product->EntryDate = $request->EntryDate;
+        $product->ExpirationDate = $request->ExpirationDate;
+        $product->ExpirationDate = $request->ExpirationDate;
+        $product->ProductPurchasePrice = $request->ProductPurchasePrice;
+        $product->ProductCategory = $request->ProductCategory;
+        $product->ProductProfit = $ProductProfit;
+        $product->InventoryStock = $request->InventoryStock;
+        $product->ProductPrice = $ProductPrice;
+        try {
+            $product->update();
+        } catch (\Throwable $th) {
+            return redirect()->route('inventories.index', $product)->bannerdanger('no se pudo agregar nuevo registro por que => '.$th);
+        }
+        return redirect()->route('inventories.index', $product)->banner('Registro actualizado correctamente.');
     }
 
     /**
@@ -120,7 +159,13 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        return "entro en delete";
+      $ProdcutDeleted = Inventory::findOrFail($id);
+      try {
+        $ProdcutDeleted->delete();
+      } catch (\Throwable $th) {
+        return redirect()->route('inventories.index', $ProdcutDeleted)->bannerdanger('no se pudo eliminar registro por que => '.$th);
+      }
+      return redirect()->route('inventories.index', $ProdcutDeleted)->banner('Registro eliminado correctamente.');
     }
 
     /**
