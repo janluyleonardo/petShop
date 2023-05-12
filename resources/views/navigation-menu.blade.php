@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('inventories.index') }}" :active="request()->routeIs('inventories.*')">
                         {{ __('Inventory') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('medical.index') }}" :active="request()->routeIs('medical.*')">
+                        {{ __('Medical History') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -145,6 +148,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('inventories.index') }}" :active="request()->routeIs('inventories.*')">
                 {{ __('Inventory') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('medical.index') }}" :active="request()->routeIs('medical.*')">
+                {{ __('Medical History') }}
             </x-jet-responsive-nav-link>
         </div>
 

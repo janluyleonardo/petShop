@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\MedicalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/inventories', InventoryController::class);
+    Route::resource('/medical', MedicalController::class);
+    Route::get('/print/{id?}', [MedicalController::class, 'print'])->name('print');
     Route::get('export', [InventoryController::class, 'export'])->name('export');
     Route::post('import', [InventoryController::class, 'import'])->name('import');
 });

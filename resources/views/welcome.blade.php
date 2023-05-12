@@ -29,8 +29,8 @@
                 <div class="d-flex justify-content-center">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/Inventory') }}"
-                                class="mx-3 btn btn-info shadow btn-sm">{{ __('Inventory') }}</a>
+                            <a href="{{ url('/dashboard') }}"
+                                class="mx-3 btn btn-info shadow btn-sm">{{ __('dashboard') }}</a>
                         @else
                             <a href="{{ route('login') }}" class="mx-3 btn btn-info shadow btn-sm">{{ __('Login') }}</a>
 

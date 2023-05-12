@@ -79,7 +79,7 @@ class InventoryController extends Controller
         try {
             $product->save();
         } catch (\Throwable $th) {
-            return redirect()->route('inventories.index', $product)->bannerdanger('no se pudo agregar nuevo registro por que => '.$th);
+            return redirect()->route('inventories.index', $product)->dangerBanner('no se pudo agregar nuevo registro por que => '.$th);
         }
         return redirect()->route('inventories.index', $product)->banner('Registro creado correctamente.');
         // return $ProductCode."--".$ProductProfit."--".$ProductPrice;
@@ -146,7 +146,7 @@ class InventoryController extends Controller
         try {
             $product->update();
         } catch (\Throwable $th) {
-            return redirect()->route('inventories.index', $product)->bannerdanger('no se pudo agregar nuevo registro por que => '.$th);
+            return redirect()->route('inventories.index', $product)->dangerBanner('no se pudo agregar nuevo registro por que => '.$th);
         }
         return redirect()->route('inventories.index', $product)->banner('Registro actualizado correctamente.');
     }
@@ -163,7 +163,7 @@ class InventoryController extends Controller
       try {
         $ProdcutDeleted->delete();
       } catch (\Throwable $th) {
-        return redirect()->route('inventories.index', $ProdcutDeleted)->bannerdanger('no se pudo eliminar registro por que => '.$th);
+        return redirect()->route('inventories.index', $ProdcutDeleted)->dangerBanner('no se pudo eliminar registro por que => '.$th);
       }
       return redirect()->route('inventories.index', $ProdcutDeleted)->banner('Registro eliminado correctamente.');
     }
@@ -173,7 +173,7 @@ class InventoryController extends Controller
     */
     public function export()
     {
-      return Excel::download(new InventoriesExport, 'inventories.xlsx');
+      return Excel::download(new InventoriesExport, 'inventario_mundial_petshop.xlsx');
     }
 
     /**
@@ -182,7 +182,13 @@ class InventoryController extends Controller
     public function import(Request $request)
     {
       $importFile = $request->file('importInventory');
-      Excel::import(new InventoriesImport, $importFile);
+      try {
+        Excel::import(new InventoriesImport, $importFile);
+      } catch (\Throwable $th) {
+        $inventories = Inventory::orderBy('id', 'desc')->paginate(10);
+        return redirect()->route('inventories.index', $inventories)->dangerBanner('No se importaron datos, verificar el archivo por favor!!!');
+        // return redirect()->route('inventories.index', $inventories)->dangerBanner('ERROR '.$th);
+      }
       $inventories = Inventory::orderBy('id', 'desc')->paginate(10);
       return redirect()->route('inventories.index', $inventories)->banner('Datos importados exitosamente');
     }

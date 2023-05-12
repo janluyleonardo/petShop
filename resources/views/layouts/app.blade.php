@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ asset('css/validations.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ asset('css/inputs.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/formulario.css?v='.now()->format('H.s')) }}">
         @livewireStyles
 
         <!-- Scripts -->
@@ -47,6 +48,7 @@
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/formulario.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     </body>
 </html>

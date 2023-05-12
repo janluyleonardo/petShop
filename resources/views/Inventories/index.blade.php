@@ -107,18 +107,24 @@
                         <div class="card-header">
                           {{ __('Upload file with product inventory') }}.
                           <strong>
-                            <a href="{{asset('carga.xlsx')}}">Aca tienes un ejemplo</a>
+                            <a href="{{asset('complementFiles/carga.xlsx')}}">Aca tienes un ejemplo</a>
                           </strong>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body d-flex">
                           <div class="col-md-6 mx-auto">
-                            <form action="{{route('import')}}" method="POST" enctype="multipart/form-data">
-                              @csrf
-                              <x-input-file></x-input-file>
-                              <button class="sombra btn btn-success ml-4" width="50%" type="submit">{{__('Import User Data')}}</button>
-                              <a class="sombra btn btn-warning ml-4" width="50%" href="{{route('export')}}">{{__('Export Inventory Data')}}</a>
-                            </form>
-                          </div>
+                          <form action="{{route('import')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <x-input-file></x-input-file>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <button class="sombra btn btn-success ml-6" width="50%" type="submit">{{__('Import User Data')}}</button>
+                              </div>
+                              <div class="col-md-6">
+                                <a class="sombra btn btn-warning ml-6" width="50%" href="{{route('export')}}">{{__('Export Inventory Data')}}</a>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                         </div>
                       </div>
                     </div>
