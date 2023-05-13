@@ -10,7 +10,18 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="container-fluid py-2">
                 <div class="row">
+                  <div class="col-md-2 mx-auto">
+                    <a title="Show" href="{{ route('medical.create') }}" class="sombra btn btn-success">{{ __('New medical history') }}</a>
+                  </div>
                     <div class="col-md-12">
+                      @if ($patients->isEmpty())
+                        <div class="col-md-12 mt-2 text-center">
+                          <strong>
+                            Aun no tenemos registros para mostrar, por favor agrega manualmente los
+                            registros o de manera masiva cargando un excel
+                          </strong>
+                        </div>
+                      @else
                         <div class="table-responsive">
                             <table class="table table-striped table-sm table-hover caption-top">
                                 <caption>{{ __('List of inventories') }}</caption>
@@ -21,9 +32,7 @@
                                         <th scope="col">Nombre paciente</th>
                                         <th scope="col">Fecha de ingreso</th>
                                         <th scope="col">Nombre propietario</th>
-                                        <th scope="col">
-                                          <a title="Show" href="{{ route('medical.create') }}" class="sombra btn btn-success">{{ __('New medical history') }}</a>
-                                        </th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,6 +126,7 @@
                                 </tbody>
                             </table>
                         </div>
+                      @endif
                     </div>
                     <div class="col-md-12">
                       {{$patients->links()}}

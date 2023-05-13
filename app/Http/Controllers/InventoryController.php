@@ -29,7 +29,8 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('Inventories.create');
+      $fecha = now()->format('Y-m-d');
+        return view('Inventories.create', compact('fecha'));
     }
 
     /**

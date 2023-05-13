@@ -44,7 +44,7 @@
                                 <div class="form-group row mb-1">
                                     <label for="EntryDate" class="col-sm-3 col-form-label">{{__('EntryDate')}}</label>
                                     <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="EntryDate" name="EntryDate" placeholder="{{__('EntryDate')}}" value="{{ old('EntryDate') }}">
+                                    <input type="date" class="form-control" id="EntryDate" name="EntryDate" placeholder="{{__('EntryDate')}}" value="{{ $fecha }}">
                                     @error('EntryDate')<small><strong class="text-danger">*{{ $message }}</strong></small><br>@enderror
                                     </div>
                                 </div>
