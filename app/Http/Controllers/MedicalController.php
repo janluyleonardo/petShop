@@ -194,10 +194,15 @@ class MedicalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MedicalHistory $patient)
+    public function destroy($id)
     {
-      return $patient->delete();
-      return redirect()->route('medical.index')->banner('Regisatro eliminado con exito!');
+      $MedicalDeleted = MedicalHistory::findOrFail($id);
+      try {
+        $MedicalDeleted->delete();
+      } catch (\Throwable $th) {
+        return redirect()->route('medical.index', $MedicalDeleted)->dangerBanner('no se pudo eliminar registro por que => '.$th);
+      }
+      return redirect()->route('medical.index', $MedicalDeleted)->banner('Registro eliminado correctamente.');
 
     }
 }
