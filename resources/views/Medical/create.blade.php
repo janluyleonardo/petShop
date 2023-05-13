@@ -18,28 +18,28 @@
                       <div class="input-group">
                         {{-- primer linea de inputs --}}
                         <div class="col-md-2 mt-3">
-                          <input class="form-control" type="date" name="AdmissionDate" required>
+                          <input class="form-control" type="date" name="AdmissionDate" value="{{$fecha}}" required>
                           <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                           <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                           Fecha de {{ __('Income') }}
                         </div>
                         <div class="col-md-1 "></div>
                         <div class="col-md-2 mt-3">
-                          <input class="form-control" type="time" name="AdmissionTime" required>
+                          <input class="form-control" type="time" name="AdmissionTime" value="{{$hora}}" required>
                           <div class="valid-feedback mv-up">You selected a hora de ingreso!</div>
                           <div class="invalid-feedback mv-up">Please select a hora de ingreso!</div>
                           Hora de {{ __('Income') }}
                         </div>
                         <div class="col-md-1 "></div>
                         <div class="col-md-3">
-                          <input class="form-control" type="text" name="Professional" required>
+                          <input class="form-control" type="text" name="Professional" value="{{env('PROFESSIONAL')}}" required>
                           <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                           <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                           Nombre profesional veterinario
                         </div>
                         <div class="col-md-1 "></div>
                         <div class="col-md-2">
-                          <input class="form-control" type="text" name="ProfessionalDocument" required>
+                          <input class="form-control" type="text" name="ProfessionalDocument" value="{{env('DOCUMENT')}}" required>
                           <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                           <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                           Tarjeta profesional

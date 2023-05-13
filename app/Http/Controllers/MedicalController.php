@@ -46,7 +46,9 @@ class MedicalController extends Controller
      */
     public function create()
     {
-      return view('Medical.create');
+      $fecha = now()->format('Y-m-d');
+      $hora = now()->format('H:i:s');
+      return view('Medical.create', compact('fecha','hora'));
     }
 
     /**
