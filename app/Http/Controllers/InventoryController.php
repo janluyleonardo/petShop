@@ -16,10 +16,15 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $inventories = Inventory::orderBy('id', 'desc')->paginate(10);
-        return view('Inventories.index', compact('inventories'));
+      $texto = trim($request->get('texto'));
+      $inventories = Inventory::where('ProductName','LIKE','%'.$texto.'%')
+                  ->orWhere('ProductCode','LIKE','%'.$texto.'%')
+                  ->orderByDesc('id')
+                  ->paginate(10);
+      $count = Inventory::count();
+      return view('Inventories.index', compact('texto','inventories','count'));
     }
 
     /**
