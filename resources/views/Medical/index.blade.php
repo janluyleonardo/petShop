@@ -10,8 +10,21 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="container-fluid py-2">
                 <div class="row">
-                  <div class="col-md-2 mx-auto">
+                <div class="col-md-4"></div>
+                  <div class="col-md-4 mx-auto">
                     <a title="Show" href="{{ route('medical.create') }}" class="sombra btn btn-success">{{ __('New medical history') }}</a>
+                  </div>
+                  <div class="col-md-4 mx-auto">
+                    <form action="" method="get">
+                      <div class="row flex-row-reverse">
+                        <div class="col-md-4 my-1">
+                          <input type="submit" class="sombra btn btn-info" value="Buscar">
+                        </div>
+                        <div class="col-auto my-1">
+                          <input type="text" class="form-control" name="texto" id="texto" value="{{$texto}}">
+                        </div>
+                      </div>
+                    </form>
                   </div>
                     <div class="col-md-12">
                       @if ($patients->isEmpty())

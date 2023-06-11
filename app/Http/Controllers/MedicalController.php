@@ -13,10 +13,16 @@ class MedicalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $patients = MedicalHistory::orderBy('id', 'desc')->paginate(10);
-      return view('Medical.index', compact('patients'));
+      $texto = trim($request->get('texto'));
+      $patients = MedicalHistory::where('MedicalNumber','LIKE','%'.$texto.'%')
+                  ->orWhere('Proprietary','LIKE','%'.$texto.'%')
+                  ->orWhere('PatientName','LIKE','%'.$texto.'%')
+                  ->orderByDesc('id')
+                  ->paginate(10);
+      $count = MedicalHistory::count();
+      return view('Medical.index', compact('texto','count','patients'));
     }
 
     /**
