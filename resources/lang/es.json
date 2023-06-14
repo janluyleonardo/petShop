@@ -189,7 +189,7 @@
     "ProductImage": "Imagen de producto",
     "ProductName": "Nombre de producto",
     "ProductPurchasePrice": "Costo unitario producto",
-    "EntryDate": "Fecha de ingreso",
+    "Sale Date": "Fecha de venta",
     "ExpirationDate": "Fecha de vencimiento",
     "InventoryStock": "Cantidad de producto",
     "ProductPrice": "Precio del producto",
@@ -223,5 +223,8 @@
     "Add Patient": "Agregar paciente",
     "Edit Patient": "Editar paciente",
     "Delete Patient": "Eliminar paciente",
-    "Print": "Imprimir"
+    "Print": "Imprimir",
+    "Sales": "Ventas",
+    "Amount": "Cantidad",
+    "List of sales in day": "Lista de ventas por dia"
 }
