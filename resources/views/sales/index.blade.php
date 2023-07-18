@@ -59,7 +59,8 @@
                       <th>Codigo</th>
                       <th>Nombre</th>
                       <th>Cantidad</th>
-                      <th>Precio</th>
+                      <th>Precio Unitario</th>
+                      <th>Precio venta</th>
                       <th>Fecha venta</th>
                     </thead>
                     <tbody>
@@ -69,6 +70,7 @@
                       <td>{{$sale->ProductName}}</td>
                       <td>{{$sale->ProductAmount}}</td>
                       <td>{{$sale->ProductPrice}}</td>
+                      <td>{{$sale->SalePrice}}</td>
                       <td>{{$sale->created_at}}</td>
                     </tr>
                     @endforeach

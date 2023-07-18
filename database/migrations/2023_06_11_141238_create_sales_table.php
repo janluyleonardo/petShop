@@ -19,6 +19,7 @@ class CreateSalesTable extends Migration
             $table->string('ProductName');
             $table->bigInteger('ProductAmount');
             $table->bigInteger('ProductPrice');
+            $table->bigInteger('SalePrice');
             $table->date('ProductSaleDate');
             $table->timestamps();
         });

@@ -31,6 +31,7 @@ class SaleController extends Controller
         'productAmount'=>'required',
         'ProductCode'=>'required',
       ]);
+
       $SaleDate = now()->format('Y-m-d');
       $productAmount = $request->productAmount;
       $ProductCode = $request->ProductCode;
@@ -58,11 +59,12 @@ class SaleController extends Controller
         $insert->ProductName = $oldName;
         $insert->ProductAmount = $productAmount;
         $insert->ProductPrice = $oldPrice;
+        $insert->SalePrice = $oldPrice * $productAmount;
         $insert->ProductSaleDate = $SaleDate;
         try {
           $insert->save();
         } catch (\Throwable $th) {
-          return $th->getMessage();
+          // return $th->getMessage();
           return redirect()->route('sales.index')->dangerBanner('no pude insertar el registro de : '.$oldName);
         }
       }

@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Inventory;
+use App\Models\User;
+use App\Models\InventorySeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $this->call(InventorySeeder::class);
+        User::factory(1)->create();
+        Inventory::factory(50)->create();
+        // $this->call(InventorySeeder::class);
     }
 }
