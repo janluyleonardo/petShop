@@ -31,6 +31,7 @@ Route::middleware([
     Route::resource('/inventories', InventoryController::class);
     Route::resource('/medical', MedicalController::class);
     Route::resource('/sales', SaleController::class);
+    Route::get('/printInvoice', [SaleController::class, 'printInvoice'])->name('printInvoice');
     Route::get('/print/{id?}', [MedicalController::class, 'print'])->name('print');
     Route::get('export', [InventoryController::class, 'export'])->name('export');
     Route::post('import', [InventoryController::class, 'import'])->name('import');
