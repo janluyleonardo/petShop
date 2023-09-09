@@ -1,2 +1,2 @@
-title universal petshop
+title universal petshop server
 php artisan serve

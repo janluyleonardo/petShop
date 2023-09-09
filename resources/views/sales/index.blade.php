@@ -41,7 +41,9 @@
                   <div class="col-md-3">
                     <label for="productAmount" class="col-sm-6 col-form-label"></label>
                     <div class="mt-3 col-md-12 mx-auto text-center">
-                      <button type="submit" class="btn btn-success sombra">{{__('Add product')}}</button>
+                      <button type="submit" class="btn btn-success sombra">
+                      <i class="bi bi-bag-plus-fill"></i> {{__('Add product')}}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -75,7 +77,9 @@
                         <tr>
                           <td colspan="6">
                             <center>
-                            <a href="{{route('printInvoice')}}" class="sombra btn btn-sm btn-primary">imprimir factura</a>
+                            <a href="{{route('printInvoice')}}" class="sombra btn btn-sm btn-primary">
+                              <i class="bi bi-receipt-cutoff"></i> imprimir factura
+                            </a>
                             </center>
                           </td>
                         </tr>
