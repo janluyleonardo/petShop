@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use PDF;
 
 class SaleController extends Controller
 {
@@ -15,9 +16,15 @@ class SaleController extends Controller
      */
     public function index()
     {
-      $sales = Sale::where('ProductSaleDate','>=', now()->format('Y-m-d'))->get();
+      $sales = Sale::where('ProductSaleDate','>=', now()->format('Y-m-d'))
+      ->where('InvoiceNumber','=',null)->get();
+
+      $allSales = Sale::where('InvoiceNumber','<>',null)
+      ->where('ProductSaleDate','>=', now()->format('Y-m-d'))
+      ->get();
+
       $products = Inventory::where('InventoryStock','>=',1)->get();
-      return view('sales.index',compact('products','sales'));
+      return view('sales.index',compact('products','sales','allSales'));
     }
 
     /**
@@ -46,6 +53,7 @@ class SaleController extends Controller
           $oldPrice = $productSale->ProductPrice;
         }
         $updateStock = $oldStock - $productAmount;
+        $invoiceTotal = $oldPrice * $productAmount;
         // $updateproduct = new Inventory();
         try {
           $productSales->toQuery()->update(['InventoryStock'=>$updateStock]);
@@ -59,7 +67,7 @@ class SaleController extends Controller
         $insert->ProductName = $oldName;
         $insert->ProductAmount = $productAmount;
         $insert->ProductPrice = $oldPrice;
-        $insert->SalePrice = $oldPrice * $productAmount;
+        $insert->InvoiceTotal = $invoiceTotal;
         $insert->ProductSaleDate = $SaleDate;
         try {
           $insert->save();
@@ -71,6 +79,31 @@ class SaleController extends Controller
       return redirect()->route('sales.index')->banner('Producto registrado correctamente.');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function printInvoice(Request $request)
+    {
+      $invoiceNumber = now()->format('Ymdhis');
+
+      $update = Sale::where('InvoiceNumber','=',null)
+        ->update([
+          'InvoiceNumber' => $invoiceNumber,
+        ]);
+
+      $invoices = Sale::where('ProductSaleDate','>=', now()->format('Y-m-d'))
+      ->where('InvoiceNumber','=', $invoiceNumber)->get();
+
+      // return $invoices;
+
+
+      $customPaper = array(0,0,567.00,283.80);
+      $pdf = PDF::loadView('sales.invoice',compact('invoices','invoiceNumber'))->setPaper($customPaper,'landscape');
+      return $pdf->stream('Factura universal pet.pdf');
+    }
     /**
      * Store a newly created resource in storage.
      *

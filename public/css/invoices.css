@@ -1,0 +1,47 @@
+body{
+  /* background-color: lightblue; */
+  width: 120% !important;
+  margin-left:-10% !important;
+  margin-top:-10% !important;
+  margin-bottom:-10% !important;
+}
+.header{
+  background-color: rgb(165, 42, 42, 0);
+  width: 50%;
+  margin:auto;
+  text-align: center;
+}
+.information{
+  width: 50%;
+  margin:auto;
+  text-align: center;
+}
+.row-amount{
+  width:10%;
+  text-align: center;
+}
+.row-name{
+  width:90%;
+}
+.row-code{
+  width:20%;
+}
+.row-price{
+  width:60%;
+}
+.row-subtotal{
+  width:20%;
+}
+.copy-client{
+  width:100%;
+  text-align: center;
+}
+.total-invoice{
+  width:100%;
+  text-align: right;
+}
+.iva-invoice{
+  width:100%;
+  text-align: right;
+}
+

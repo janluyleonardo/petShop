@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Inventory;
 use App\Models\User;
 use App\Models\InventorySeeder;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
